@@ -1,0 +1,1 @@
+Examples from the book [Mastering Web Application Development with AngularJS](https://www.packtpub.com/web-development/mastering-web-application-development-angularjs)
