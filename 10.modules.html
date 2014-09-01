@@ -4,39 +4,14 @@
 	<meta charset="UTF-8">
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 </head>
-<body ng-app>
-	<div class="container" ng-controller="TextAreaWithLimitCtrl">
-		<div class="row">
-			<span ng-class="{'text-warning fulerage':shouldWarn()}">
-				Remaining: {{remaining()}}
-			</span>
-			<textarea ng-model="message">{{message}}</textarea>
-		</div>
-		<div class="row">
-			<button ng-disabled="!hasValidLength()" ng-click="send()">Send</button>
-			<button ng-click="clear()">Clear</button>
-		</div>
-	</div>
+<body ng-app="hello" ng-controller="HelloCtrl">
+	Say hello to: <input type="text" ng-model="name">
+	<h1>Hello, {{name}}!</h1>
 	<script>
-		var TextAreaWithLimitCtrl = function($scope){
-			$scope.message='';
-
-			$scope.remaining = function(){
-				return 80 - ($scope.message.length || 0);
-			}
-
-			$scope.shouldWarn = function(){
-				return $scope.remaining() < 0;
-			}
-
-			$scope.hasValidLength = function(){
-				return ($scope.message.length > 0) && ($scope.message.length <= 80);
-			}
-
-			$scope.clear = function(){
-				$scope.message = '';
-			}
-		};
+		angular.module('hello',[])
+			.controller('HelloCtrl', function($scope){
+				$scope.name = 'World'
+			});
 	</script>
 </body>
 </html>
